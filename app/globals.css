@@ -1,1 +1,31 @@
 @import "tailwindcss";
+
+
+
+
+/* Apply Playfair Display to headings */
+h1, h2, h3, h4, h5, h6, .heading {
+    font-family: 'Playfair Display', serif;
+    /* You can also specify a default font weight if needed */
+    /* font-weight: 700; */
+    color: #c65f3e;
+  }
+  
+  /* Apply Open Sans to the body and other general text elements */
+  body, p, li, a, span, div {
+    font-family: 'Open Sans', sans-serif;
+    /* You can set a default font weight and size for the body */
+    font-weight: 400;
+  }
+  
+  /* You might want to specifically target other elements as well */
+  /* For example, for navigation links: */
+  nav a {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  /* Or for buttons: */
+  button {
+    font-family: 'Open Sans', sans-serif;
+  }
+
