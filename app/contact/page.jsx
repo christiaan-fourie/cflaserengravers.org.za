@@ -19,14 +19,11 @@ export default function Contact() {
 
   return (
     <main className="flex flex-col items-center justify-center h-screen pt-12 px-4 bg-gradient-to-b from-gray-100 to-gray-200">
-      <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-6 text-center">
-        Contact Us
-      </h1>
-
+      
       <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* Contact Information */}
         <div className="bg-white p-8 rounded-xl shadow-lg">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">{contactInfo.heading}</h2>
+          <h2 className="text-2xl font-bold text-[#c65f3e] mb-6">{contactInfo.heading}</h2>
           <p className="text-lg md:text-xl text-gray-600 mb-12">
             {contactInfo.description}
           </p>
@@ -53,7 +50,7 @@ export default function Contact() {
             </a>
           </p>
           <div className="mt-8">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">Follow Us</h3>
+            <h3 className="text-lg font-semibold text-[#c65f3e] mb-4">Follow Us</h3>
             <div className="flex space-x-6">
               {contactInfo.socialLinks.map((link) => (
                 <a
@@ -73,7 +70,7 @@ export default function Contact() {
 
         {/* Contact Form */}
         <form className="bg-white p-8 rounded-xl shadow-lg">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h2>
+          <h2 className="text-2xl font-bold mb-6 text-[#c65f3e]">Send Us a Message</h2>
           <div className="mb-6">
             <label htmlFor="name" className="block text-sm font-medium text-gray-700">
               Name
