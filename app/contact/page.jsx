@@ -1,4 +1,4 @@
-import { FaFacebook, FaTwitter, FaYoutube, FaTelegram } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaYoutube, FaTelegram, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 
 export default function Contact() {
   // JSON object for content
@@ -20,23 +20,22 @@ export default function Contact() {
   return (
     <main className="flex flex-col items-center justify-center h-screen pt-12 px-4 bg-gradient-to-b from-gray-100 to-gray-200">
       <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-6 text-center">
-        
+        Contact Us
       </h1>
-      
 
       <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* Contact Information */}
         <div className="bg-white p-8 rounded-xl shadow-lg">
           <h2 className="text-2xl font-bold text-gray-800 mb-6">{contactInfo.heading}</h2>
           <p className="text-lg md:text-xl text-gray-600 mb-12">
-              {contactInfo.description}
+            {contactInfo.description}
           </p>
-          <p className="mb-6 text-gray-700">
-            <strong>Address:</strong> <br />
+          <p className="mb-6 text-gray-700 flex items-center gap-2">
+            <FaMapMarkerAlt className="text-blue-600" />
             {contactInfo.address}
           </p>
-          <p className="mb-6 text-gray-700">
-            <strong>Email:</strong> <br />
+          <p className="mb-6 text-gray-700 flex items-center gap-2">
+            <FaEnvelope className="text-blue-600" />
             <a
               href={`mailto:${contactInfo.email}`}
               className="text-blue-600 hover:underline"
@@ -44,8 +43,8 @@ export default function Contact() {
               {contactInfo.email}
             </a>
           </p>
-          <p className="mb-6 text-gray-700">
-            <strong>Phone:</strong> <br />
+          <p className="mb-6 text-gray-700 flex items-center gap-2">
+            <FaPhone className="text-blue-600" />
             <a
               href={`tel:${contactInfo.phone}`}
               className="text-blue-600 hover:underline"
