@@ -33,17 +33,7 @@ export default function Hero() {
             >
               Get Started
             </Link>
-
-            {/* WhatsApp Icon */}
-            <Link
-              href="https://wa.me/" // Replace with your WhatsApp number
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-green-500 hover:text-white hover:bg-green-600 rounded-full p-2 transition-all duration-300 text-3xl"
-              aria-label="WhatsApp Us"
-            >
-              <FaWhatsapp />
-            </Link>
+            
           </div>
         </div>
       </div>
