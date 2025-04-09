@@ -129,7 +129,7 @@ export default function Header() {
             {/* Whatsapp Icon */}
             <li className="px-4 md:px-0">
               <Link
-                href="https://wa.me/" // Replace with your WhatsApp number
+                href="https://wa.me/27761682245" // Replace with your WhatsApp number
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-green-500 hover:text-green-600 transition-all duration-300 text-3xl"

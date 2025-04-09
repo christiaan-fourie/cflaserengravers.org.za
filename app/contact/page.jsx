@@ -11,7 +11,7 @@ export default function Contact() {
     phone: "+27 76 168 2245",
     socialLinks: [
       { id: 1, name: "Facebook", href: "https://facebook.com", icon: FaFacebook },
-      { id: 2, name: "Whatsapp", href: "https://wa.me/", icon: FaWhatsapp },
+      { id: 2, name: "Whatsapp", href: "https://wa.me/27761682245", icon: FaWhatsapp },
     ],
   };
 
