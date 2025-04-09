@@ -60,9 +60,9 @@ export default function Examples() {
   ];
 
   return (
-    <div className="py-12 md:px-42">
+    <div className="py-12 md:px-12 lg:px-42">
       <h3 className="text-3xl font-bold text-left mb-8 text-[#d94948]">Previous Work</h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
         {examples.map((example) => (
           <div key={example.id} className="bg-white rounded shadow-md p-4">
             <div className="relative w-full h-64">
