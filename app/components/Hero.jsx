@@ -1,10 +1,9 @@
-import React from 'react';
+
 import Link from 'next/link';
-import { FaWhatsapp } from 'react-icons/fa'; // Importing the WhatsApp icon from React Icons
 
 export default function Hero() {
   return (
-    <div className="relative h-[60vh] md:h-[100vh] overflow-hidden">
+    <div className="relative h-[100vh] overflow-hidden">
       {/* Background Image with Parallax */}
       <div
         className="absolute inset-0 -z-10 bg-fixed bg-center bg-cover"
@@ -29,7 +28,7 @@ export default function Hero() {
             {/* Get Started Button */}
             <Link
               href="/contact"
-              className="px-6 py-3 bg-[#c65f3e] text-white rounded-lg hover:bg-[#a84b34] transition-all duration-300 text-lg"
+              className="glass px-6 py-3 text-white hover:text-[#c65f3e] hover:font-bold border hover:border-[#c65f3e] rounded-lg transition-all duration-300 text-lg"
             >
               Get Started
             </Link>
