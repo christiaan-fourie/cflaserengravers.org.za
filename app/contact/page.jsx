@@ -1,4 +1,5 @@
-import { FaFacebook, FaTwitter, FaYoutube, FaTelegram, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaEnvelope, FaPhone, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
+import ContactForm from './ContactForm';
 
 export default function Contact() {
   // JSON object for content
@@ -6,19 +7,16 @@ export default function Contact() {
     heading: "Contact Us",
     description:
       "Please don't hesitate to contact me and see how I can accommodate you and be of service.",
-    address: "16 Feather Street, Jagtershof, Kuils River, Western Cape, 7580",
     email: "sales@cflaserengravers.org.za",
     phone: "+27 76 168 2245",
     socialLinks: [
       { id: 1, name: "Facebook", href: "https://facebook.com", icon: FaFacebook },
-      { id: 2, name: "Twitter", href: "https://twitter.com", icon: FaTwitter },
-      { id: 3, name: "YouTube", href: "https://youtube.com", icon: FaYoutube },
-      { id: 4, name: "Telegram", href: "https://telegram.org", icon: FaTelegram },
+      { id: 2, name: "Whatsapp", href: "https://wa.me/", icon: FaWhatsapp },
     ],
   };
 
   return (
-    <main className="flex flex-col items-center justify-center h-screen pt-12 px-4 bg-gradient-to-b from-gray-100 to-gray-200">
+    <main className="flex flex-col items-center justify-center md:h-screen pt-48 md:pt-24 pb-4 px-4 bg-gradient-to-b from-gray-100 to-gray-200">
       
       <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* Contact Information */}
@@ -28,29 +26,25 @@ export default function Contact() {
             {contactInfo.description}
           </p>
           <p className="mb-6 text-gray-700 flex items-center gap-2">
-            <FaMapMarkerAlt className="text-blue-600" />
-            {contactInfo.address}
-          </p>
-          <p className="mb-6 text-gray-700 flex items-center gap-2">
-            <FaEnvelope className="text-blue-600" />
+            <FaEnvelope className="text-[#c65f3e]" />
             <a
               href={`mailto:${contactInfo.email}`}
-              className="text-blue-600 hover:underline"
+              className="text-[#c65f3e] hover:underline"
             >
               {contactInfo.email}
             </a>
           </p>
           <p className="mb-6 text-gray-700 flex items-center gap-2">
-            <FaPhone className="text-blue-600" />
+            <FaPhone className="text-[#c65f3e]" />
             <a
               href={`tel:${contactInfo.phone}`}
-              className="text-blue-600 hover:underline"
+              className="text-[#c65f3e] hover:underline"
             >
               {contactInfo.phone}
             </a>
           </p>
           <div className="mt-8">
-            <h3 className="text-lg font-semibold text-[#c65f3e] mb-4">Follow Us</h3>
+            <h3 className="text-lg font-semibold text-[#c65f3e] mb-4">Get Social</h3>
             <div className="flex space-x-6">
               {contactInfo.socialLinks.map((link) => (
                 <a
@@ -58,7 +52,7 @@ export default function Contact() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-blue-600"
+                  className="text-gray-600 hover:text-[#c65f3e] transition duration-300"
                   aria-label={link.name}
                 >
                   <link.icon size={28} />
@@ -67,50 +61,8 @@ export default function Contact() {
             </div>
           </div>
         </div>
-
         {/* Contact Form */}
-        <form className="bg-white p-8 rounded-xl shadow-lg">
-          <h2 className="text-2xl font-bold mb-6 text-[#c65f3e]">Send Us a Message</h2>
-          <div className="mb-6">
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              className="mt-2 block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 p-3"
-              required
-            />
-          </div>
-          <div className="mb-6">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="mt-2 block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 p-3"
-              required
-            />
-          </div>
-          <div className="mb-6">
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-              Message
-            </label>
-            <textarea
-              id="message"
-              rows="5"
-              className="mt-2 block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 p-3"
-              required
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
-          >
-            Send Message
-          </button>
-        </form>
+        <ContactForm />
       </div>
     </main>
   );
