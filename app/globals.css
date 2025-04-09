@@ -28,3 +28,9 @@ h1, h2, h3, h4, h5, h6, .heading {
     font-family: 'Open Sans', sans-serif;
   }
 
+.glass {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(11.3px);
+  -webkit-backdrop-filter: blur(11.3px);
+}
