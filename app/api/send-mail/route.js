@@ -1,47 +1,50 @@
-import nodemailer from 'nodemailer';
-import { NextResponse } from 'next/server';
+const nodemailer = require('nodemailer');
 
-export async function POST(req, res) {
+// Configure email server
+const transporter = nodemailer.createTransport({
+  host: 'mail.cflaserengravers.org.za',
+  port: 465,
+  secure: true, // SSL/TLS
+  auth: {
+    user: process.env.EMAIL_USER, // Store username in Vercel environment variable
+    pass: process.env.EMAIL_PASS, // Store password in Vercel environment variable
+  },
+});
 
-    if (req.method !== 'POST') {
-        return NextResponse.json({ message: 'Only POST requests are allowed' }, { status: 405 });
-    }
 
-    try {
-        const { email, name } = await req.json();
+// Open The API to make post
+export async function POST(req) {
+  
+    
+  const body = await req.json(); // Parse JSON payload from request body
+  const { name, email, message } = body; // Extract client details
 
-        if (!email || !name) {
-            return NextResponse.json({ message: 'Email and name are required' }, { status: 400 });
-        }
+  console.log(body);
+  // Send email using your preferred method (e.g., nodemailer)
 
-        const transporter = nodemailer.createTransport({
-            host: 'mail.cflaserengravers.org.za',
-            port: 465,   
-            secure: true, // SSL/TLS
-            auth: {
-                user: process.env.EMAIL_USER, // Your email address.
-                pass: process.env.EMAIL_PASS, // Your email password or app-specific password
-            },
-        });
+  const mailOptions = {
+    from: '"Website Contact" <no-reply@yourdomain.com>', // Set sender info
+    to: 'christiaanfourie60@gmail.com', // Set recipient email address
+    subject: `Contact Form Submission - ${name}`, // Set email subject
+    html: `
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Message:</strong> ${message}</p>
+    `, // Email content with client details
+  };
 
-        const mailOptions = {
-            from: process.env.EMAIL_USER, // Your email address
-            to: 'christiaanfourie60@gmail.com', // The email address where you want to receive the messages
-            subject: `New Contact Form Submission from ${name}`,
-            text: `You have received a new message from ${name} (${email})`,
-        };
 
-        await transporter.sendMail(mailOptions);
-
-        return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
-    } catch (error) {
-        console.error('Error sending email:', error);
-        console.error('Error details:', {
-            message: error.message,
-            stack: error.stack,
-            code: error.code, // If available
-            errno: error.errno, // If available
-        });
-        return NextResponse.json({ message: 'Failed to send email', error: error.message }, { status: 500 });
-    }
+  try {
+    await transporter.sendMail(mailOptions);
+      return new Response(JSON.stringify({ 
+        message: 'Email sent successfully!', 
+        status: 200, 
+      }));
+  } catch (error) {
+    console.error(error);
+    return new Response(JSON.stringify({ 
+      message: 'Error sending email!', 
+      status: 500, 
+    }));
+  }
 }
