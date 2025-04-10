@@ -7,6 +7,7 @@ export default function ContactForm() {
     // JSON object for content using useState
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
+    const [messageText, setMessageText] = useState("");
     const [message, setMessage] = useState("");
     const [error, setError] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -29,7 +30,7 @@ export default function ContactForm() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ name, email }),
+                body: JSON.stringify({ name, email, message: messageText }),
             });
 
             if (response.ok) {
@@ -37,6 +38,7 @@ export default function ContactForm() {
                 // Optionally, reset the form fields
                 setEmail("");
                 setName("");
+                setMessageText("");
                 setMessage("Message sent successfully!"); // Set success message
                 setIsSent(true);
             } else {
@@ -50,7 +52,7 @@ export default function ContactForm() {
             setIsSubmitting(false);
         }
 
-        console.log("Form submitted with:", { name, email });
+        console.log("Form submitted with:", { name, email, message: messageText });
     };
 
     // Function to handle input changes
@@ -60,6 +62,8 @@ export default function ContactForm() {
             setEmail(value);
         } else if (name === "name") {
             setName(value);
+        } else if (name === "message") {
+            setMessageText(value);
         }
     };
 
@@ -96,6 +100,22 @@ export default function ContactForm() {
                         onChange={handleInputChange}
                         name="email"
                         value={email}
+                    />
+                </div>
+
+                {/* Message input */}
+                <div className="mb-6">
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                        Message
+                    </label>
+                    <textarea
+                        id="message"
+                        className="mt-2 block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-[#c65f3e] focus:border-[#c65f3e] p-3"
+                        required
+                        onChange={handleInputChange}
+                        name="message"
+                        value={messageText}
+                        rows="4" // You can adjust the number of rows as needed
                     />
                 </div>
 
