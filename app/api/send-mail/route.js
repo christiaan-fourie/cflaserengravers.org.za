@@ -23,7 +23,7 @@ export async function POST(req) {
   // Send email using your preferred method (e.g., nodemailer)
 
   const mailOptions = {
-    from: '"Website Contact" <no-reply@yourdomain.com>', // Set sender info
+    from: process.env.EMAIL_USER, // Set sender info
     to: 'christiaanfourie60@gmail.com', // Set recipient email address
     subject: `Contact Form Submission - ${name}`, // Set email subject
     html: `
