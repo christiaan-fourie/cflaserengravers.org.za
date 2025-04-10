@@ -6,8 +6,8 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true, // SSL/TLS
   auth: {
-    user: process.env.EMAIL_USER, // Store username in Vercel environment variable
-    pass: process.env.EMAIL_PASS, // Store password in Vercel environment variable
+    user: process.env.EMAIL_USERNAME, // Store username in Vercel environment variable
+    pass: process.env.EMAIL_PASSWORD, // Store password in Vercel environment variable
   },
 });
 
@@ -23,7 +23,7 @@ export async function POST(req) {
   // Send email using your preferred method (e.g., nodemailer)
 
   const mailOptions = {
-    from: process.env.EMAIL_USER, // Set sender info
+    from: process.env.EMAIL_USERNAME, // Set sender info
     to: 'christiaanfourie60@gmail.com', // Set recipient email address
     subject: `Contact Form Submission - ${name}`, // Set email subject
     html: `
