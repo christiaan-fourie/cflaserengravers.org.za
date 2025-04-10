@@ -26,7 +26,7 @@ export async function POST(req, res) {
 
         const mailOptions = {
             from: process.env.EMAIL_USER, // Your email address
-            to: 'sales@cflaserengravers.org.za', // The email address where you want to receive the messages
+            to: 'christiaanfourie60@gmail.com', // The email address where you want to receive the messages
             subject: `New Contact Form Submission from ${name}`,
             text: `You have received a new message from ${name} (${email})`,
         };
@@ -36,6 +36,12 @@ export async function POST(req, res) {
         return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
     } catch (error) {
         console.error('Error sending email:', error);
+        console.error('Error details:', {
+            message: error.message,
+            stack: error.stack,
+            code: error.code, // If available
+            errno: error.errno, // If available
+        });
         return NextResponse.json({ message: 'Failed to send email', error: error.message }, { status: 500 });
     }
 }
