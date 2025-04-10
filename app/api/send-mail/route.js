@@ -6,8 +6,8 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true, // SSL/TLS
   auth: {
-    user: process.env.EMAIL_USERNAME, // Store username in Vercel environment variable
-    pass: process.env.EMAIL_PASSWORD, // Store password in Vercel environment variable
+    user: 'io@cflaserengravers.org.za', // Store username in Vercel environment variable
+    pass: 'aMd5wprKDW2Avpg4hCqD', // Store password in Vercel environment variable
   },
 });
 
