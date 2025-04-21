@@ -70,32 +70,32 @@ export default function ContactForm() {
     
 
   return (
-    <form className="bg-white p-8 rounded-xl shadow-lg" onSubmit={handleSubmit}>
-        <h2 className="text-2xl font-bold mb-6 text-[#c65f3e]">Send Us a Message</h2>
+    <form className="p-4 md:p-6 max-w-4xl mx-auto w-full" onSubmit={handleSubmit}>
+        <h2 className="text-lg md:text-xl font-bold mb-3 md:mb-4 text-[#c65f3e]">Send Us a Message</h2>
         {!isSent && (
             <>
-                <div className="mb-6">
+                <div className="mb-3 md:mb-4">
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                         Name
                     </label>
                     <input
                         type="text"
                         id="name"
-                        className="mt-2 block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-[#c65f3e] focus:border-[#c65f3e] p-3"
+                        className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-[#c65f3e] focus:border-[#c65f3e] p-2 text-sm"
                         required
                         onChange={handleInputChange}
                         name="name"
                         value={name}
                     />
                 </div>
-                <div className="mb-6">
+                <div className="mb-3 md:mb-4">
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                         Email
                     </label>
                     <input
                         type="email"
                         id="email"
-                        className="mt-2 block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-[#c65f3e] focus:border-[#c65f3e] p-3"
+                        className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-[#c65f3e] focus:border-[#c65f3e] p-2 text-sm"
                         required
                         onChange={handleInputChange}
                         name="email"
@@ -104,25 +104,24 @@ export default function ContactForm() {
                 </div>
 
                 {/* Message input */}
-                <div className="mb-6">
+                <div className="mb-3 md:mb-4">
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700">
                         Message
                     </label>
                     <textarea
                         id="message"
-                        className="mt-2 block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-[#c65f3e] focus:border-[#c65f3e] p-3"
+                        className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-[#c65f3e] focus:border-[#c65f3e] p-2 text-sm max-h-[50px] resize-y"
                         required
                         onChange={handleInputChange}
                         name="message"
                         value={messageText}
-                        rows="4" // You can adjust the number of rows as needed
+                        rows="3"
                     />
                 </div>
 
-
                 <button
                     type="submit"
-                    className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
+                    className="w-full bg-blue-600 text-white py-2 rounded-md font-medium text-sm hover:bg-blue-700 transition duration-300"
                     disabled={isSubmitting}
                 >
                     {isSubmitting ? "Sending..." : "Send Message"}
@@ -130,13 +129,11 @@ export default function ContactForm() {
             </>
         )}
 
-
         {/* Display the Message or error */}
-        <div className="mt-6">
-            {message && <p className="text-green-600">{message}</p>}
-            {error && <p className="text-red-600">{error}</p>}
+        <div className="mt-3 md:mt-4">
+            {message && <p className="text-green-600 text-sm">{message}</p>}
+            {error && <p className="text-red-600 text-sm">{error}</p>}
         </div>
-
     </form>
   )
 }

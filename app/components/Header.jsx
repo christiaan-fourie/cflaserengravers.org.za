@@ -33,7 +33,7 @@ export default function Header() {
   return (
     
     
-    <header className="bg-white/30 glass fixed t-0 w-full z-50 shadow-md">
+    <header className="bg-white/30 glass md:fixed t-0 w-full z-50 shadow-md">
       
       <div className="container mx-auto flex justify-between items-center p-4 py-4">
 
@@ -94,7 +94,7 @@ export default function Header() {
                     </Link>
                   </li>
                 ))}
-                <li className="px-4 md:px-0">
+                {/* <li className="px-4 md:px-0">
                   <Link
                     href="https://wa.me/" // Replace with your WhatsApp number
                     target="_blank"
@@ -105,7 +105,7 @@ export default function Header() {
                   >
                     <FaWhatsapp />
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </>
           )}
@@ -127,7 +127,7 @@ export default function Header() {
             ))}
 
             {/* Whatsapp Icon */}
-            <li className="px-4 md:px-0">
+            {/* <li className="px-4 md:px-0">
               <Link
                 href="https://wa.me/27761682245" // Replace with your WhatsApp number
                 target="_blank"
@@ -137,7 +137,7 @@ export default function Header() {
               >
                 <FaWhatsapp />
               </Link>
-            </li>
+            </li> */}
           </ul>
         </nav>
       </div>
